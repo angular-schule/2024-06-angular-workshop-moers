@@ -1,10 +1,13 @@
-<h2>{{ book?.title }}</h2>
+<!-- <h2>{{ book?.title }}</h2>
 
 @if(book) {
   <p>{{ book.description }}</p>
-}
+} -->
 
 <!--
   bis einschließlich Angular 16 *ngIf *ngFor *ngSwitch
   `ng generate @angular/core:control-flow` zur Migration
 -->
+
+<h2>{{ book().title }}</h2>
+<p>{{ book().description }}</p>
