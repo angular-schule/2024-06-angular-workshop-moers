@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Book } from '../shared/book';
 import { JsonPipe, UpperCasePipe } from '@angular/common';
 
@@ -26,9 +26,11 @@ export class BlubbPipe implements PipeTransform {
 })
 export class DashboardComponent {
 
-  // 🦆
-  // TODO: signal!
-  books: Book[] = [
+  // Alter Stil
+  // books: Book[] = []
+
+  // Neuer Stil - mit Signals
+  books = signal<Book[]>([
     {
       isbn: '000',
       title: 'Angular',
@@ -47,7 +49,7 @@ export class DashboardComponent {
       description: 'Uraltes Buch',
       rating: 1
     }
-  ];
+  ]);
 }
 
 

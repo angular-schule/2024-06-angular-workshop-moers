@@ -9,7 +9,7 @@
   `ng generate @angular/core:control-flow` zur Migration
 -->
 
-<h2>{{ book().title }}</h2>
+<h2 [ngClass]="{ 'text-success': tollesBuch() }">{{ book().title }}</h2>
 <p>{{ book().description }}</p>
 
 <hr>

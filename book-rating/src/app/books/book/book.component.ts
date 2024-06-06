@@ -1,10 +1,11 @@
 import { Component, Input, computed, input } from '@angular/core';
 import { Book } from '../shared/book';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-book',
   standalone: true,
-  imports: [],
+  imports: [NgClass], // wahrscheinlich neben routerLink die einzige Direktive die ihr benötigt 😸
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'
 })
