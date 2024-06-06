@@ -1,4 +1,4 @@
-import { Component, Input, computed, input } from '@angular/core';
+import { Component, Input, computed, input, model } from '@angular/core';
 import { Book } from '../shared/book';
 import { NgClass } from '@angular/common';
 
