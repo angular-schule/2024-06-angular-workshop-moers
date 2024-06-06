@@ -17,10 +17,9 @@ export class AppComponent {
   // neuer Stil mit Signals
   title2 = signal('Book Rating 2');
 
-  constructor() {
-    window.setTimeout(() => this.title = 'blubb', 1000);
+  // constructor() {
+  //   window.setTimeout(() => this.title = 'blubb', 1000);
 
-
-    window.setTimeout(() => this.title2.set('blubb'), 1000);
-  }
+  //   window.setTimeout(() => this.title2.set('blubb'), 1000);
+  // }
 }
