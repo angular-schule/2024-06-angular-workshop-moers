@@ -1,4 +1,4 @@
-import { Component, Input, input } from '@angular/core';
+import { Component, Input, computed, input } from '@angular/core';
 import { Book } from '../shared/book';
 
 @Component({
@@ -13,7 +13,12 @@ export class BookComponent {
   // alter Stil mit Dekorator
   // @Input({ required: true }) book?: Book;
 
+  // tollesBuch() {
+  //   return this.book?.title === 'Angular'
+  // }
 
   // neuer Stil mit Signal --> DEVELOPER PREVIEW
   book = input.required<Book>();
+
+  tollesBuch = computed(() => this.book().title === 'Angular');
 }
