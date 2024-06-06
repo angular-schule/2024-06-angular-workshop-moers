@@ -25,6 +25,7 @@ export class BlubbPipe implements PipeTransform {
 })
 export class DashboardComponent {
 
+  // 🦆
   books: Book[] = [
     {
       isbn: '000',
@@ -41,8 +42,7 @@ export class DashboardComponent {
     {
       isbn: '333',
       title: 'jQuery',
-      description: 'Uraltes Buch',
-      rating: 1
+      description: 'Uraltes Buch'
     }
   ];
 }
