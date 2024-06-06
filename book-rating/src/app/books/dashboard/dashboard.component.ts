@@ -3,6 +3,7 @@ import { Book } from '../shared/book';
 import { JsonPipe, UpperCasePipe } from '@angular/common';
 
 import { Pipe, PipeTransform } from '@angular/core';
+import { BookComponent } from '../book/book.component';
 
 @Pipe({
   name: 'blubb',
@@ -19,13 +20,14 @@ export class BlubbPipe implements PipeTransform {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [JsonPipe, UpperCasePipe, BlubbPipe],
+  imports: [JsonPipe, UpperCasePipe, BlubbPipe, BookComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
 
   // 🦆
+  // TODO: signal!
   books: Book[] = [
     {
       isbn: '000',
@@ -42,7 +44,8 @@ export class DashboardComponent {
     {
       isbn: '333',
       title: 'jQuery',
-      description: 'Uraltes Buch'
+      description: 'Uraltes Buch',
+      rating: 1
     }
   ];
 }
