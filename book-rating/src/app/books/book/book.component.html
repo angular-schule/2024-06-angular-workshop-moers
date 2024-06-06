@@ -9,10 +9,16 @@
   `ng generate @angular/core:control-flow` zur Migration
 -->
 
-<h2 [ngClass]="{ 'text-success': tollesBuch() }">{{ book().title }}</h2>
-<p>{{ book().description }}</p>
 
-<hr>
-
-Tolles Buch: {{ tollesBuch() }}
-
+<div class="card mb-4">
+  <div class="card-body bg-light">
+      <img class="img-thumbnail float-end" alt="" src="https://api.angular.schule/avatar/{{ book().rating }}">
+    <div class="card-title">
+      <h2 [ngClass]="{ 'text-success': tollesBuch() }">
+        {{ book().title }}
+        <span class="badge bg-secondary">{{ book().rating }}</span>
+      </h2>
+    </div>
+    <p>{{ book().description }}</p>
+  </div>
+</div>
