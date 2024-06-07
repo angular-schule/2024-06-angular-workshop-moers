@@ -50,6 +50,14 @@ export class DashboardComponent {
       rating: 1
     }
   ]);
+
+  rateUpHandler(book: Book) {
+    console.log(book);
+  }
+
+  rateDownHandler(book: Book) {
+    console.table(book);
+  }
 }
 
 
