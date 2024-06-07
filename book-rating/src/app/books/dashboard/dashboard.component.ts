@@ -17,6 +17,7 @@ export class BlubbPipe implements PipeTransform {
 
 }
 
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -52,6 +53,7 @@ export class DashboardComponent {
   ]);
 
   rateUpHandler(book: Book) {
+
     console.log(book);
   }
 
