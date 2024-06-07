@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, computed, input, model } from '@angular/core';
+import { Component, EventEmitter, Input, Output, computed, input, model, output } from '@angular/core';
 import { Book } from '../shared/book';
 import { NgClass } from '@angular/common';
 
@@ -11,27 +11,42 @@ import { NgClass } from '@angular/common';
 })
 export class BookComponent {
 
+  //#region
   // alter Stil mit Dekorator
-  @Input({ required: true }) book?: Book;
+  // @Input({ required: true }) book?: Book;
+
+  // alter Stil mit Dekorator
+  // @Output() rateUp = new EventEmitter<Book>();
+  // @Output() rateDown = new EventEmitter<Book>();
+
 
   // tollesBuch() {
   //   return this.book?.title === 'Angular'
   // }
 
+  // doRateUp() {
+  //   this.rateUp.emit(this.book);
+  // }
+
+  // doRateRown() {
+  //   this.rateDown.emit(this.book);
+  // }
+  //#endregion
+
+
   // neuer Stil mit Signal --> DEVELOPER PREVIEW
-  // book = input.required<Book>();
-  // tollesBuch = computed(() => this.book().title === 'Angular');
+  book = input.required<Book>();
+  tollesBuch = computed(() => this.book().title === 'Angular');
 
 
-  // alter Stil mit Dekorator
-  @Output() rateUp = new EventEmitter<Book>();
-  @Output() rateDown = new EventEmitter<Book>();
+  rateUp = output<Book>();
+  rateDown = output<Book>();
 
   doRateUp() {
-    this.rateUp.emit(this.book);
+    this.rateUp.emit(this.book());
   }
 
-  doRateRown() {
-    this.rateDown.emit(this.book);
+  doRateDown() {
+    this.rateDown.emit(this.book());
   }
 }
