@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>
+  <h1 class="mb-4">
     <img
       width="100"
       alt="Angular Logo"
@@ -7,6 +7,12 @@
     />
     {{ title }}
   </h1>
+
+  <ul>
+    <li><a routerLink="/loadComponent"  routerLinkActive="fw-bold">loadComponent</a></li>
+    <li><a routerLink="/loadChildren/2" routerLinkActive="fw-bold">loadChildren 2</a></li>
+    <li><a routerLink="/loadChildren/3" routerLinkActive="fw-bold">loadChildren 3</a></li>
+  </ul>
 
   <router-outlet></router-outlet>
 
