@@ -33,7 +33,7 @@ export class AppComponent {
   doCreateComponent(index: number) {
 
     const childComponentRef = this.viewContainerRef().createComponent(availableComponents[index].component);
-    childComponentRef.setInput('myInput', index);
+    childComponentRef.setInput('myInput', index + 1);
     childComponentRef.setInput('showRemoveMe', true);
 
     const childComponent = childComponentRef.instance;
