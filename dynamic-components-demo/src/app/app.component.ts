@@ -1,5 +1,5 @@
 import { NgComponentOutlet } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, ElementRef, EnvironmentInjector, OnInit, ViewContainerRef, computed, inject, signal, viewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import LoadMeComponent from './load-me/load-me.component';
 import { LoadMe2Component } from './load-me2/load-me2.component';
@@ -24,4 +24,23 @@ export class AppComponent {
 
   currentComponentIndex = signal(0);
   currentComponent = computed(() => availableComponents[this.currentComponentIndex()]);
+
+  // ---
+
+  ref = inject(ViewContainerRef);
+  envInjector = inject(EnvironmentInjector);
+
+  hostElement = viewChild.required<ElementRef>('component-container');
+
+  doCreateComponent() {
+
+    // siehe https://v17.angular.io/api/core/createComponent
+    const comp = this.ref.createComponent(LoadMeComponent, {
+      environmentInjector: this.envInjector,
+    });
+
+
+
+    comp.setInput('title', 'Inputs with createComponent');
+  }
 }

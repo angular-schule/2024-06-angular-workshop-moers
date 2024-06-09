@@ -36,4 +36,21 @@
     <ng-template *ngComponentOutlet="currentComponent().component; inputs: currentComponent().inputs" />
   </div>
 
+  <hr class="m-4 border-0">
+
+  <h2>createComponent</h2>
+
+  <p>
+    <button class="btn btn-primary m-1" (click)="doCreateComponent(0)">Load 1</button>
+    <button class="btn btn-primary m-1" (click)="doCreateComponent(1)">Load 2</button>
+    <button class="btn btn-primary m-1" (click)="doCreateComponent(2)">Load 3</button>
+  </p>
+
+  <div class="alert alert-primary bg-white" id="component-container"></div>
+
+  <p>
+    Hinweis: <code>NgComponentOutlet</code> verwendet ebenso <code>createComponent</code> und <code>setInput</code> im Hintergrund.
+  </p>
+
+
 </div>
