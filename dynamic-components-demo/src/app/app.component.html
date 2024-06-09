@@ -36,17 +36,29 @@
     <ng-template *ngComponentOutlet="currentComponent().component; inputs: currentComponent().inputs" />
   </div>
 
+  <!--
+    Weitere Option für ngComponentOutlet mit Outputs:
+    https://github.com/gund/ng-dynamic-component
+
+    Oder hierauf warten:
+    https://github.com/JeanMeche/angular/commit/1f767b4dfecd590f33861b4436355d7fbe1de518
+  -->
+
+
   <hr class="m-4 border-0">
 
   <h2>createComponent</h2>
 
   <p>
-    <button class="btn btn-primary m-1" (click)="doCreateComponent(0)">Load 1</button>
-    <button class="btn btn-primary m-1" (click)="doCreateComponent(1)">Load 2</button>
-    <button class="btn btn-primary m-1" (click)="doCreateComponent(2)">Load 3</button>
+    <button class="btn btn-primary m-1" (click)="doCreateComponent(0)">Load +1</button>
+    <button class="btn btn-primary m-1" (click)="doCreateComponent(1)">Load +2</button>
+    <button class="btn btn-primary m-1" (click)="doCreateComponent(2)">Load +3</button>
   </p>
 
-  <div class="alert alert-primary bg-white" id="component-container"></div>
+  <strong>Template</strong>
+  <div class="alert alert-primary bg-white">
+    <ng-template #viewContainerRef></ng-template>
+  </div>
 
   <p>
     Hinweis: <code>NgComponentOutlet</code> verwendet ebenso <code>createComponent</code> und <code>setInput</code> im Hintergrund.
@@ -54,3 +66,4 @@
 
 
 </div>
+

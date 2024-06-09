@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-load-me3',
@@ -9,4 +9,7 @@ import { Component, input } from '@angular/core';
 })
 export class LoadMe3Component {
   myInput = input<string>();
+
+  showRemoveMe = input(false);
+  removeMe = output();
 }
