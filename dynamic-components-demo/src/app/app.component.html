@@ -8,12 +8,32 @@
     {{ title }}
   </h1>
 
+  <h2>Lazy Loading</h2>
+
   <ul>
-    <li><a routerLink="/loadComponent"  routerLinkActive="fw-bold">loadComponent</a></li>
-    <li><a routerLink="/loadChildren/2" routerLinkActive="fw-bold">loadChildren 2</a></li>
-    <li><a routerLink="/loadChildren/3" routerLinkActive="fw-bold">loadChildren 3</a></li>
+    <li><a routerLink="/loadComponent/foo"  routerLinkActive="fw-bold">loadComponent</a></li>
+    <li><a routerLink="/loadChildren/2/bar" routerLinkActive="fw-bold">loadChildren 2</a></li>
+    <li><a routerLink="/loadChildren/3/foo-bar" routerLinkActive="fw-bold">loadChildren 3</a></li>
   </ul>
 
-  <router-outlet></router-outlet>
+  <strong>Router Outlet</strong>
+  <div class="alert alert-primary bg-white">
+    <router-outlet></router-outlet>
+  </div>
+
+  <hr class="m-4 border-0">
+
+  <h2>NgComponentOutlet</h2>
+
+  <p>
+    <button class="btn btn-primary m-1" (click)="currentComponentIndex.set(0)">Load 1</button>
+    <button class="btn btn-primary m-1" (click)="currentComponentIndex.set(1)">Load 2</button>
+    <button class="btn btn-primary m-1" (click)="currentComponentIndex.set(2)">Load 3</button>
+  </p>
+
+  <strong>Template</strong>
+  <div class="alert alert-primary bg-white">
+    <ng-template *ngComponentOutlet="currentComponent().component; inputs: currentComponent().inputs" />
+  </div>
 
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-load-me2',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './load-me2.component.scss'
 })
 export class LoadMe2Component {
-
+  myInput = input<string>();
 }

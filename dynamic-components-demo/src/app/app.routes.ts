@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'loadComponent',
+    path: 'loadComponent/:myInput',
     loadComponent: () => import('./load-me/load-me.component')
   },
   {
