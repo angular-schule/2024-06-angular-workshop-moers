@@ -3,11 +3,12 @@ import { Book } from '../shared/book';
 
 import { BookComponent } from '../book/book.component';
 import { BookRatingService } from '../shared/book-rating.service';
+import { BookCreateComponent } from '../book-create/book-create.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [BookComponent],
+  imports: [BookComponent, BookCreateComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush // weil wir Signals einsetzen, sind wir save
