@@ -2,7 +2,7 @@ import { Book } from './book';
 import { BookRatingService } from './book-rating.service';
 
 // das F muss wieder weg!!!
-fdescribe('BookRatingService', () => {
+describe('BookRatingService', () => {
   let service: BookRatingService;
   let book: Book;
 
