@@ -41,9 +41,9 @@ export class DashboardComponent {
     }
   ]);
 
-  constructor() {
-    setTimeout(() => this.books.set([]), 3000)
-  }
+  // constructor() {
+  //   setTimeout(() => this.books.set([]), 3000)
+  // }
 
   rateUpHandler(book: Book) {
     const ratedBook = this.br.rateUp(book);

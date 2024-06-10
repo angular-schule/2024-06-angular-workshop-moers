@@ -3,7 +3,6 @@
 </pre> -->
 
 @for(b of books(); track b.isbn) {
-  Text
   <app-book
     [book]="b"
     (rateUp)="rateUpHandler($event)"
