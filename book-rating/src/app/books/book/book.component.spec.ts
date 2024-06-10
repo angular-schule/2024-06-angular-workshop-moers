@@ -17,13 +17,12 @@ describe('BookComponent', () => {
     fixture = TestBed.createComponent(BookComponent);
     component = fixture.componentInstance;
 
-    // TODO: offiziellen weg finden
-    component.book = signal<Book>({
+    fixture.componentRef.setInput('book', {
       isbn: '',
       title: '',
       description: '',
       rating: 3
-    }) as any;
+    });
 
     fixture.detectChanges();
   });
