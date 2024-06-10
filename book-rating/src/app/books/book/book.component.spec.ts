@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BookComponent } from './book.component';
+import { signal } from '@angular/core';
+import { Book } from '../shared/book';
 
 describe('BookComponent', () => {
   let component: BookComponent;
@@ -11,9 +13,18 @@ describe('BookComponent', () => {
       imports: [BookComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(BookComponent);
     component = fixture.componentInstance;
+
+    // TODO: offiziellen weg finden
+    component.book = signal<Book>({
+      isbn: '',
+      title: '',
+      description: '',
+      rating: 3
+    }) as any;
+
     fixture.detectChanges();
   });
 
