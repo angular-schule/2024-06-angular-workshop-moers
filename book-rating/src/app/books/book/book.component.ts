@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, computed, input, model, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, computed, input, model, output } from '@angular/core';
 import { Book } from '../shared/book';
 import { NgClass } from '@angular/common';
 
@@ -7,7 +7,8 @@ import { NgClass } from '@angular/common';
   standalone: true,
   imports: [NgClass], // wahrscheinlich neben routerLink die einzige Direktive die ihr benötigt 😸
   templateUrl: './book.component.html',
-  styleUrl: './book.component.scss'
+  styleUrl: './book.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush // hier ist top!
 })
 export class BookComponent {
 
@@ -48,5 +49,9 @@ export class BookComponent {
 
   doRateDown() {
     this.rateDown.emit(this.book());
+  }
+
+  log() {
+    console.log('CD! ' +new Date());
   }
 }

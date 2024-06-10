@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Book } from '../shared/book';
 
 import { BookComponent } from '../book/book.component';
@@ -9,7 +9,8 @@ import { BookRatingService } from '../shared/book-rating.service';
   standalone: true,
   imports: [BookComponent],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush // weil wir Signals einsetzen, sind wir save
 })
 export class DashboardComponent {
 
@@ -39,6 +40,10 @@ export class DashboardComponent {
       rating: 1
     }
   ]);
+
+  // constructor() {
+  //   setTimeout(() => this.books.set([]), 3000)
+  // }
 
   rateUpHandler(book: Book) {
     const ratedBook = this.br.rateUp(book);
