@@ -10,7 +10,7 @@ import { BookRatingService } from '../shared/book-rating.service';
   imports: [BookComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush // weil wir Signals einsetzen, sind wir save
 })
 export class DashboardComponent {
 
