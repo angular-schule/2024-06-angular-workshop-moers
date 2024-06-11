@@ -20,7 +20,13 @@ export class FromeventComponent {
 
     /******************************/
 
-    
+    fromEvent(window, 'resize').pipe(
+
+      map(e => (e.target as Window).innerWidth)
+
+    ).subscribe(e => console.log(e))
+
+
     /******************************/
   }
 

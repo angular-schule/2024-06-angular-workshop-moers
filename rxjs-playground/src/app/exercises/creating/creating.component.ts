@@ -24,7 +24,20 @@ export class CreatingComponent {
 
     /******************************/
 
-    
+    // PUSH statt PULL prinzip
+
+    const observer = {
+      next: (e: string) => this.log(e),
+      error: (e: any) => this.log('ERROR: ' + e),
+      complete: () => this.log('COMPLETE')
+    }
+
+    const observable = of('😎', '😸', '🤩');
+    // const observable =  interval(1000);
+    const subscription = observable.subscribe(observer);
+
+    // setInterval(() => subscription.unsubscribe(), 5000);
+
     /******************************/
   }
 
