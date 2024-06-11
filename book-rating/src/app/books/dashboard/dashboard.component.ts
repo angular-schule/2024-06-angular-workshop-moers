@@ -70,6 +70,22 @@ export class DashboardComponent {
 
     this.books.set(newBooks);
   }
+
+  createHandler(newBook: Book) {
+
+    // immutable, mehr gute Praxis
+    this.books.update(x => [...x, newBook].sort((a, b) => b.rating - a.rating));
+
+    // NICHT immutable, aber massiv speicher eingespart
+    // this.books().push(newBook);
+    // this.books.set(this.books());
+
+
+    // ODER
+
+    // const newArray = [...this.books(), newBook].sort((a, b) => b.rating - a.rating);
+    // this.books.set(newArray);
+  }
 }
 
 

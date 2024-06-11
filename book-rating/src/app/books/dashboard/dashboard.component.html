@@ -1,5 +1,7 @@
 
-<app-book-create />
+<app-book-create
+  (create)="createHandler($event)"
+/>
 
 @for(b of books(); track b.isbn) {
   <app-book

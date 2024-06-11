@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Book } from '../shared/book';
 
@@ -12,6 +12,7 @@ import { Book } from '../shared/book';
 })
 export class BookCreateComponent {
 
+  create = output<Book>();
 
   bookForm = new FormGroup({
     isbn: new FormControl('', {
@@ -39,13 +40,7 @@ export class BookCreateComponent {
 
   submitForm() {
     const newBook = this.bookForm.getRawValue();
-
-    // Hands On:
-    // 1. Erstelle ein Event mit dem Namen `create`
-    // 2. Emitte das Event mit dem neuen Buch
-    // 3. Binde dich auf das Event im Dashboard (runde Klammern)
-    // 4. Füge das neue Buch dem Buch-Array hinzu (immutable, z. B. mit Spread Operator)
-
+    this.create.emit(newBook);
     this.bookForm.reset();
   }
 }
