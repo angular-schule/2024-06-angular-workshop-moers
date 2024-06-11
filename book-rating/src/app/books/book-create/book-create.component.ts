@@ -29,7 +29,9 @@ export class BookCreateComponent {
     rating: new FormControl<number>(1, {
       nonNullable: true,
       validators: [Validators.min(1), Validators.max(5)]
-    })
+    }),
+
+    // firstThumbnailUrl: new FormControl('')
   });
 
   c = this.bookForm.controls;
@@ -39,7 +41,10 @@ export class BookCreateComponent {
   }
 
   submitForm() {
-    const newBook = this.bookForm.getRawValue();
+    const newBook = {
+      ...this.bookForm.getRawValue(),
+      // firstThumbnailUrl: 'xxx'
+    }
     this.create.emit(newBook);
     this.bookForm.reset();
   }

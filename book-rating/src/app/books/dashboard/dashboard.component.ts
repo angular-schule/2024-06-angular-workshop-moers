@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { Book } from '../shared/book';
 
 import { BookComponent } from '../book/book.component';
 import { BookRatingService } from '../shared/book-rating.service';
 import { BookCreateComponent } from '../book-create/book-create.component';
+import { BookStoreService } from '../shared/book-store.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,37 +14,23 @@ import { BookCreateComponent } from '../book-create/book-create.component';
   styleUrl: './dashboard.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush // weil wir Signals einsetzen, sind wir save
 })
-export class DashboardComponent {
+export class DashboardComponent /* implements OnInit */ {
 
   br = inject(BookRatingService);
+  bs = inject(BookStoreService);
 
   // Alter Stil
   // books: Book[] = []
 
   // Neuer Stil - mit Signals
-  books = signal<Book[]>([
-    {
-      isbn: '000',
-      title: 'Angular',
-      description: 'Tolles Buch',
-      rating: 5
-    },
-    {
-      isbn: '111',
-      title: 'Knockout Buch',
-      description: 'Leider veraltet ',
-      rating: 3
-    },
-    {
-      isbn: '333',
-      title: 'jQuery',
-      description: 'Uraltes Buch',
-      rating: 1
-    }
-  ]);
+  books = signal<Book[]>([]);
 
-  // constructor() {
-  //   setTimeout(() => this.books.set([]), 3000)
+  constructor() {
+    this.bs.getAllBooks().subscribe(books => this.books.set(books));
+  }
+
+  // ngOnInit() {
+  //   this.bs.getAllBooks().subscribe(books => this.books.set(books));
   // }
 
   rateUpHandler(book: Book) {
