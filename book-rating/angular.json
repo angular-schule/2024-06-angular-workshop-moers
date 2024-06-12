@@ -20,9 +20,7 @@
             "outputPath": "dist/book-rating",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-
-            ],
+            "polyfills": [],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -116,7 +114,8 @@
   },
   "cli": {
     "schematicCollections": [
-      "@angular-eslint/schematics"
+      "@angular-eslint/schematics",
+      "@ngrx/schematics"
     ]
   }
 }

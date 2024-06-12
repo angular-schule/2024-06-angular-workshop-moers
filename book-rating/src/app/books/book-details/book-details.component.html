@@ -1,8 +1,10 @@
-<!-- <h2>{{ isbn() }}</h2> -->
+@if (book(); as book) {
 
-<p>{{ book() | json }}</p>
+  <h2>{{ book.title }}</h2>
+  <p>{{ book.description }}</p>
+
+}
 
 <a routerLink="/books/9783864909467">Gehe zu Angular</a><br>
-<a routerLink="/books/7879789789">Gehe zum besten Buch der Welt</a>
-
-
+<a routerLink="/books/7879789789">Gehe zum besten Buch der Welt</a><br>
+<a routerLink="/books/404">Gehe zum Fehler</a>
