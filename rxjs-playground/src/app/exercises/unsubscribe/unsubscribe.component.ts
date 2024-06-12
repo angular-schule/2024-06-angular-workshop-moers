@@ -8,10 +8,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   standalone: true,
   imports: [HistoryComponent]
 })
-export class UnsubscribeComponent implements OnDestroy {
+export class UnsubscribeComponent {
 
   logStream$ = new ReplaySubject<string | number>();
-  subscription: Subscription;
 
   /**
    * Öffne die Browser-Console: Dort siehst Du den Output eines Observables, das jede Sekunde einen Wert generiert.
@@ -26,10 +25,11 @@ export class UnsubscribeComponent implements OnDestroy {
   constructor() {
     const interval$ = timer(0, 1000);
 
-    this.subscription = interval$.pipe(
+    interval$.pipe(
 
       /******************************/
 
+      takeUntilDestroyed()
 
       /******************************/
 
@@ -38,10 +38,6 @@ export class UnsubscribeComponent implements OnDestroy {
       error: err => this.log('❌ ERROR: ' + err),
       complete: () => this.log('✅ COMPLETE')
     });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   log(msg: string | number) {
