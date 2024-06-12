@@ -5,6 +5,8 @@ import { BookComponent } from '../book/book.component';
 import { BookRatingService } from '../shared/book-rating.service';
 import { BookCreateComponent } from '../book-create/book-create.component';
 import { BookStoreService } from '../shared/book-store.service';
+import { Store } from '@ngrx/store';
+import { selectBooks, selectBooksLoading } from '../store/book.selectors';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,14 +18,15 @@ import { BookStoreService } from '../shared/book-store.service';
 })
 export class DashboardComponent /* implements OnInit */ {
 
-  br = inject(BookRatingService);
-  bs = inject(BookStoreService);
+  // br = inject(BookRatingService);
+  // bs = inject(BookStoreService);
 
   // Alter Stil
   // books: Book[] = []
 
   // Neuer Stil - mit Signals
-  books = signal<Book[]>([]);
+  books = inject(Store).selectSignal(selectBooks);
+  loading = inject(Store).selectSignal(selectBooksLoading);
 
   constructor() {
     // this.bs.getAllBooks().subscribe(books => this.books.set(books));
@@ -34,44 +37,44 @@ export class DashboardComponent /* implements OnInit */ {
   // }
 
   rateUpHandler(book: Book) {
-    const ratedBook = this.br.rateUp(book);
+    // const ratedBook = this.br.rateUp(book);
 
-    // const ratedBook = {
-    //   ...book,
-    //   rating: Math.min(book.rating + 1, 5)
-    // }
+    // // const ratedBook = {
+    // //   ...book,
+    // //   rating: Math.min(book.rating + 1, 5)
+    // // }
 
-    this.updateAndSort(ratedBook);
+    // this.updateAndSort(ratedBook);
   }
 
   rateDownHandler(book: Book) {
-    const ratedBook = this.br.rateDown(book);
-    this.updateAndSort(ratedBook);
+    // const ratedBook = this.br.rateDown(book);
+    // this.updateAndSort(ratedBook);
   }
 
   updateAndSort(ratedBook: Book) {
 
-    const newBooks = this.books()
-      .map(b => b.isbn === ratedBook.isbn ? ratedBook : b)
-      .sort((a,b) => b.rating - a.rating);
+    // const newBooks = this.books()
+    //   .map(b => b.isbn === ratedBook.isbn ? ratedBook : b)
+    //   .sort((a,b) => b.rating - a.rating);
 
-    this.books.set(newBooks);
+    // this.books.set(newBooks);
   }
 
   createHandler(newBook: Book) {
 
-    // immutable, mehr gute Praxis
-    this.books.update(x => [...x, newBook].sort((a, b) => b.rating - a.rating));
+    // // immutable, mehr gute Praxis
+    // this.books.update(x => [...x, newBook].sort((a, b) => b.rating - a.rating));
 
-    // NICHT immutable, aber massiv speicher eingespart
-    // this.books().push(newBook);
-    // this.books.set(this.books());
+    // // NICHT immutable, aber massiv speicher eingespart
+    // // this.books().push(newBook);
+    // // this.books.set(this.books());
 
 
-    // ODER
+    // // ODER
 
-    // const newArray = [...this.books(), newBook].sort((a, b) => b.rating - a.rating);
-    // this.books.set(newArray);
+    // // const newArray = [...this.books(), newBook].sort((a, b) => b.rating - a.rating);
+    // // this.books.set(newArray);
   }
 }
 
