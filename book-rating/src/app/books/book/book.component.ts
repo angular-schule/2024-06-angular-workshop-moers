@@ -38,7 +38,6 @@ export class BookComponent {
 
   // neuer Stil mit Signal --> DEVELOPER PREVIEW
   book = input.required<Book>();
-  anzahl = input.required<number>();
 
   tollesBuch = computed(() => this.book().title === 'Angular');
 
