@@ -24,6 +24,8 @@ describe('BookComponent', () => {
       rating: 3
     });
 
+    fixture.componentRef.setInput('anzahl', 1);
+
     fixture.detectChanges();
   });
 

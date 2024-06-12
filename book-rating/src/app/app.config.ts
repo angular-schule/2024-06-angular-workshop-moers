@@ -9,7 +9,7 @@ import { environment } from '../environments/environment.development';
 export const appConfig: ApplicationConfig = {
   providers: [
     // provideZoneChangeDetection({ eventCoalescing: true }),
-    provideExperimentalZonelessChangeDetection(),
+    // provideExperimentalZonelessChangeDetection(),
     provideRouter(routes,
       withComponentInputBinding(),
       // withDebugTracing()
