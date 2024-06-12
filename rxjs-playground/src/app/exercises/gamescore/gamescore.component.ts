@@ -23,7 +23,25 @@ export class GamescoreComponent {
 
     /******************************/
 
-    
+    // this.score$.pipe(
+    //   scan((acc, item) => acc + item, 0)
+    // ).subscribe(score => this.currentScore = score);
+
+    // this.score$.pipe(
+    //   reduce((acc, item) => acc + item, 0)
+    // ).subscribe(score => this.finalScore = score);
+
+    this.score$.pipe(
+      scan((actual, addScore) => {
+        let current = actual + addScore;
+        if (current <= 0){
+          return 0;
+        }
+        return current;
+      }, 0),
+    ).subscribe(score => this.currentScore = score);
+
+
     /******************************/
 
     this.score$.subscribe({

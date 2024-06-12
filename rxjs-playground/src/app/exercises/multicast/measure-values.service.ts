@@ -23,7 +23,7 @@ export class MeasureValuesService {
         timer(generateRandomInt(800, 2000), generateRandomInt(3800, 4500)).pipe(map(() => this.randomNumber())),
         timer(generateRandomInt(1500, 3500), 7300).pipe(map(() => this.randomNumber()))
       ).pipe(
-        scan((acc, item) => acc + item, 50 + Math.random()),
+        scan((acc, item) => acc + item, 25 + Math.random()),
         tap(e => console.log(`MVS Subscription #${currentCall}: ${e}`))
       );
     });
