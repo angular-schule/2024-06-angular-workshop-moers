@@ -26,7 +26,7 @@ export class DashboardComponent /* implements OnInit */ {
   books = signal<Book[]>([]);
 
   constructor() {
-    this.bs.getAllBooks().subscribe(books => this.books.set(books));
+    // this.bs.getAllBooks().subscribe(books => this.books.set(books));
   }
 
   // ngOnInit() {
